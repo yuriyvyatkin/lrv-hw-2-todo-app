@@ -16,8 +16,8 @@ class TodoSeeder extends Seeder
     public function run()
     {
         $faker = Factory::create();
-
         $limit = 10;
+
         for ($i = 0; $i < $limit; $i++) {
             DB::table('todos')->insert([
                 'title' => $faker->sentence(3),
