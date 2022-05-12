@@ -1,0 +1,27 @@
+<x-layout>
+    <x-slot name="title">
+        Todos
+    </x-slot>
+
+    <table class="table">
+        <thead>
+            <th>id</th>
+            <th>title</th>
+            <th>description</th>
+            <th>created_at</th>
+            <th>updated_at</th>
+        </thead>
+        <tbody>
+            @foreach ($todos as $todo)
+                <tr>
+                    <td>{{ $todo->id }}</td>
+                    <td>{{ $todo->title }}</td>
+                    <td>{{ $todo->description }}</td>
+                    <td>{{ $todo->created_at }}</td>
+                    <td>{{ $todo->updated_at ?? '-' }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+
+</x-layout>
