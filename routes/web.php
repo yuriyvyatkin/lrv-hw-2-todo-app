@@ -21,19 +21,3 @@ Route::get('/', function () {
 Route::resource('todo', TodoController::class)->only([
     'index', 'create', 'show'
 ]);
-
-// Route::controller(TodoController::class)->prefix('/todo')->group(function() {
-//     Route::get('/', 'index')->name('/');
-
-//     Route::get('/store', 'store');
-
-//     Route::get('/{id}','show')->whereNumber('id');
-// });
-
-// Route::fallback(function () {
-//     return redirect('/');
-// });
-
-// return redirect()->route('post', ['id' => 1]);
-// return redirect()->action([TestController::class, 'show']);
-// return redirect('post/show2');
