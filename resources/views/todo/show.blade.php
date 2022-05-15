@@ -21,5 +21,4 @@
             </tr>
         </tbody>
     </table>
-
 </x-layout>

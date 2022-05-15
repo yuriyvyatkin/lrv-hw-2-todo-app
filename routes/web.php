@@ -21,3 +21,7 @@ Route::get('/', function () {
 Route::resource('todo', TodoController::class)->only([
     'index', 'create', 'show'
 ]);
+
+Route::fallback(function () {
+    return redirect('/');
+});
