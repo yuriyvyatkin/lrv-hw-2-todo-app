@@ -15,10 +15,9 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $todos = Todo::all();
+        $todos = Todo::simplePaginate(5);
 
-        return response(view('todo.index', ['todos' => $todos]), 200)
-            ->header('Content-Type', 'text/html');
+        return response(view('todo.index', ['todos' => $todos]));
     }
 
     /**
@@ -36,7 +35,7 @@ class TodoController extends Controller
         $todo->updated_at = NULL;
         $todo->save();
 
-        return redirect()->route('/');
+        return redirect('/todo');
     }
 
     /**
@@ -47,9 +46,6 @@ class TodoController extends Controller
      */
     public function show(Request $request, Todo $todo)
     {
-        $todo = Todo::find($request->id);
-
-        return response(view('todo.show', ['todo' => $todo]), 200)
-            ->header('Content-Type', 'text/html');
+        return response(view('todo.show', ['todo' => $todo]));
     }
 }

@@ -24,4 +24,6 @@
         </tbody>
     </table>
 
+    {{ $todos->links() }}
+
 </x-layout>

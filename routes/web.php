@@ -18,10 +18,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('/todo')->group(function() {
-    Route::get('/', [TodoController::class, 'index'])->name('/');
+Route::resource('todo', TodoController::class)->only([
+    'index', 'create', 'show'
+]);
 
-    Route::get('/create', [TodoController::class, 'create']);
+// Route::controller(TodoController::class)->prefix('/todo')->group(function() {
+//     Route::get('/', 'index')->name('/');
 
-    Route::get('/{id}', [TodoController::class, 'show'])->whereNumber('id');
-});
+//     Route::get('/store', 'store');
+
+//     Route::get('/{id}','show')->whereNumber('id');
+// });
+
+// Route::fallback(function () {
+//     return redirect('/');
+// });
+
+// return redirect()->route('post', ['id' => 1]);
+// return redirect()->action([TestController::class, 'show']);
+// return redirect('post/show2');
